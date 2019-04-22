@@ -10,4 +10,7 @@ c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.csproj.Genera
 c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.csproj.CoreCompileInputs.cache
 c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.exe
 c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.pdb
-c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.circuits.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.drawing.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.shapes.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.colors.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.circuit.resources

@@ -64,7 +64,7 @@ namespace ptders2
 
                     try
                     {
-                        serialPort1.BaudRate = int.Parse(comboBox_baudrate.Text);
+                        serialPort1.BaudRate = 115200;
                         serialPort1.PortName = comboBox_seriport.Text;
                         serialPort1.Open();
                         button_baglan.Text = "Disconnect";
@@ -128,18 +128,6 @@ namespace ptders2
                 comboBox2.Items.Add(item);
             }
 
-            using (var searcher = new ManagementObjectSearcher
-                ("SELECT * FROM WIN32_SerialPort"))
-            {
-                string[] portnames = SerialPort.GetPortNames();
-                var ports = searcher.Get().Cast<ManagementBaseObject>().ToList();
-                var tList = (from n in portnames
-                             join p in ports on n equals p["DeviceID"].ToString()
-                             select n + " - " + p["Caption"]).ToList();
-
-                tList.ForEach(Console.WriteLine);
-            }
-
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -191,7 +179,7 @@ namespace ptders2
                     
                     try
                     {
-                        serialPort2.BaudRate = int.Parse(comboBox1.Text);
+                        serialPort2.BaudRate = 9600;
                         serialPort2.PortName = comboBox2.Text;
                         serialPort2.Open();
                         button2.Text = "Disconnect";
@@ -248,8 +236,8 @@ namespace ptders2
 
         private void pictureBox6_Click_1(object sender, EventArgs e)
         {
-            circuits circuitPage = new circuits();
-            circuitPage.setSerialPort(serialPort1);
+            circuit circuitPage = new circuit();
+            circuitPage.setSerial(serialPort1);
             circuitPage.Show();
         }
 
@@ -301,6 +289,46 @@ namespace ptders2
             var fractionPage = new fraction();
             fractionPage.setSerialPort(serialPort1);
             fractionPage.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            shapes shapesPage = new shapes();
+            shapesPage.setSerialPort(serialPort1,serialPort2);
+            shapesPage.Show();
+        }
+
+        private void label_math_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            drawing drawPage = new drawing();
+            drawPage.setSerialPort(serialPort1);
+            drawPage.Show();
+        }
+
+        private void pictureBox7_Click_1(object sender, EventArgs e)
+        {
+            colors colorPage = new colors();
+            colorPage.setSerialPort(serialPort2);
+            colorPage.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            shapes shapesPage = new shapes();
+            shapesPage.setSerialPort(serialPort1,serialPort2);
+            shapesPage.Show();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            circuit circuitPage = new circuit();
+            circuitPage.setSerial(serialPort1);
+            circuitPage.Show();
         }
     }
 }
