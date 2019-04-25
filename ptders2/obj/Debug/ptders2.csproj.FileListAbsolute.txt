@@ -1,7 +1,6 @@
 c:\users\musa ünal\source\repos\ptders2\ptders2\bin\Debug\ptders2.exe.config
 c:\users\musa ünal\source\repos\ptders2\ptders2\bin\Debug\ptders2.exe
 c:\users\musa ünal\source\repos\ptders2\ptders2\bin\Debug\ptders2.pdb
-c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.csprojAssemblyReference.cache
 c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.Form1.resources
 c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.fraction.resources
 c:\users\musa ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.integral.resources

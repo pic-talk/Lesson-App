@@ -153,10 +153,10 @@ namespace ptders2
                 try
                 {
                     var pixel = imageBitmap.GetPixel((int)(e.X * stretch_X), (int)(e.Y * stretch_Y));
-                    if((pixel.R != 0 &&pixel.G!= 0 && pixel.B != 0))
+                    if((pixel.R != 0 &&pixel.G!=0 && pixel.B != 0))
                     {
                         Console.WriteLine(pixel.R.ToString() + "." + pixel.G + "." + pixel.B);
-                        serialPortGlove.Write(255 + "/" + 0+ "/" + 0 + "/0" + "/0" + "/0" + ":");
+                        serialPortGlove.Write("255" + "/" + "0"+ "/" + "0"+ "/0" + "/0" + "/0" + ":");
                         System.Threading.Thread.Sleep(100);
                     }
 
