@@ -308,5 +308,23 @@
   <ItemGroup>
     <None Include="Resources\triangle %281%291.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

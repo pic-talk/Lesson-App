@@ -89,6 +89,10 @@ namespace ptders2
             imageBitmap = new Bitmap(pictureBox1.Image);
             stretch_X = pictureBox1.Image.Width / (float)pictureBox1.Width;
             stretch_Y = pictureBox1.Image.Height / (float)pictureBox1.Height;
+
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\integral.wav");
+            player.Play();
+
         }
 
         private void sendGlove(Color pixel)

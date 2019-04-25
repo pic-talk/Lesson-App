@@ -50,6 +50,8 @@ namespace ptders2
             {
                 var bmp = new Bitmap(ptders2.Properties.Resources.square);
                 pictureBox1.Image = (Image)bmp;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\square.wav");
+                player.Play();
                 serialportShapeDisplay.Write(":00000000000000000009999000090090000900900009999000000000000000000&");
             }
             catch
@@ -64,6 +66,8 @@ namespace ptders2
             {
                 var bmp = new Bitmap(ptders2.Properties.Resources.add__1_);
                 pictureBox1.Image = (Image)bmp;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\plus.wav");
+                player.Play();
                 serialportShapeDisplay.Write(":00009900000099000000990009999999999999999000990000009900000099000&");
 
             }
@@ -79,6 +83,8 @@ namespace ptders2
             {
                 var bmp = new Bitmap(ptders2.Properties.Resources.triangle__1_);
                 pictureBox1.Image = (Image)bmp;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\triangle.wav");
+                player.Play();
                 serialportShapeDisplay.Write(":00000000000000000000000000009900000900900090000909999999900000000&");
             }
             catch
@@ -93,6 +99,8 @@ namespace ptders2
             {
                 var bmp = new Bitmap(ptders2.Properties.Resources.oval__1_);
                 pictureBox1.Image = (Image)bmp;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\circle.wav");
+                player.Play();
                 serialportShapeDisplay.Write(":00099990009000090900000099000000990000009990000090990009000999900&");
             }
             catch
@@ -107,6 +115,8 @@ namespace ptders2
             {
                 var bmp = new Bitmap(ptders2.Properties.Resources.rectangle__1_);
                 pictureBox1.Image = (Image)bmp;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\rectangle.wav");
+                player.Play();
                 serialportShapeDisplay.Write(":00000000000000000099999900900009009000090099999900000000000000000&"); 
             }
             catch
@@ -121,6 +131,8 @@ namespace ptders2
             {
                 var bmp = new Bitmap(ptders2.Properties.Resources.like__1_);
                 pictureBox1.Image = (Image)bmp;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\heart.wav");
+                player.Play();
                 serialportShapeDisplay.Write(":00990099099999999999999999999999909999990009999000009900000000000&");
             }
             catch

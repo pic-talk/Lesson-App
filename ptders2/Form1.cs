@@ -330,5 +330,10 @@ namespace ptders2
             circuitPage.setSerial(serialPort1);
             circuitPage.Show();
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

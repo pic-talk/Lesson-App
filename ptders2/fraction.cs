@@ -54,6 +54,10 @@ namespace ptders2
 
         }
 
-
+        private void fraction_Load(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\gauss.wav");
+            player.Play();
+        }
     }
 }
