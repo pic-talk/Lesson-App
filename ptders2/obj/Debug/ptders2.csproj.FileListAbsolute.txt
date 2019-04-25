@@ -13,3 +13,4 @@ C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.drawing.resou
 C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.shapes.resources
 C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.colors.resources
 C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.circuit.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Debug\ptders2.csprojAssemblyReference.cache

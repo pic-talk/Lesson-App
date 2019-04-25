@@ -48,7 +48,7 @@ namespace ptders2
         {
             try
             {
-                var bmp = new Bitmap(ptders2.Properties.Resources.square);
+                var bmp = new Bitmap(ptders2.Properties.Resources.square1);
                 pictureBox1.Image = (Image)bmp;
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"files\square.wav");
                 player.Play();
@@ -150,6 +150,7 @@ namespace ptders2
         {
             if (mouse)
             {
+                calculateStretch(pictureBox1);
                 try
                 {
                     var pixel = imageBitmap.GetPixel((int)(e.X * stretch_X), (int)(e.Y * stretch_Y));
@@ -181,6 +182,12 @@ namespace ptders2
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void calculateStretch(PictureBox pt)
+        {
+            imageBitmap = new Bitmap(pictureBox1.Image);
+            stretch_X = pictureBox1.Image.Width / (float)pictureBox1.Width;
+            stretch_Y = pictureBox1.Image.Height / (float)pictureBox1.Height;
         }
     }
 }
