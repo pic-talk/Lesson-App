@@ -156,7 +156,7 @@ namespace ptders2
                     if((pixel.R != 0 &&pixel.G!= 0 && pixel.B != 0))
                     {
                         Console.WriteLine(pixel.R.ToString() + "." + pixel.G + "." + pixel.B);
-                        serialPortGlove.Write(1 + "/" + 0+ "/" + 0 + "/0" + "/0" + "/0" + ":");
+                        serialPortGlove.Write(255 + "/" + 0+ "/" + 0 + "/0" + "/0" + "/0" + ":");
                         System.Threading.Thread.Sleep(100);
                     }
 
@@ -174,6 +174,11 @@ namespace ptders2
         }
 
         private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
