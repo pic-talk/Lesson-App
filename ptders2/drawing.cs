@@ -30,10 +30,12 @@ namespace ptders2
         private List<Tuple<int, int>> mouseovercoordinates = new List<Tuple<int, int>>();
 
 
-        SerialPort sameport;
+        SerialPort displayPort;
+        private SerialPort glovePort;
         private bool mouse;
         private List<string> serial_buffer;
         private string buffer;
+        private bool clickchecked = false;
 
         public drawing()
         {
@@ -45,7 +47,7 @@ namespace ptders2
             pictureBox1.Image = palette;
 
 
-            comboBox2.SelectedItem = "Yeşil";
+            comboBox2.SelectedItem = "Green";
             trackBar1.Value = 2;
             SetPic();
 
@@ -54,6 +56,7 @@ namespace ptders2
             _pixels = new bool[_count, _count];
             ShowGrid();
 
+            timer1.Interval = 500;
 
         }
 
@@ -125,7 +128,7 @@ namespace ptders2
                     if (((Bitmap)pictureBox1.Image).GetPixel(e.X, e.Y).G == 128)
                     {
                         Console.WriteLine("0/255/0/0/0/0");
-                        sameport.WriteLine("0/255/0/0/0/0");
+                        glovePort.WriteLine("0/255/0/0/0/0");
                     }    
 
 
@@ -145,15 +148,15 @@ namespace ptders2
         public void SetPic()
         {
             string renk = comboBox2.SelectedItem.ToString();
-            if (renk == "Kırmızı")
+            if (renk == "Red")
             {
                 color = new SolidBrush(Color.Red);
             }
-            if (renk == "Yeşil")
+            if (renk == "Green")
             {
                 color = new SolidBrush(Color.Green);
             }
-            if (renk == "Mavi")
+            if (renk == "Blue")
             {
                 color = new SolidBrush(Color.Blue);
             }
@@ -164,9 +167,10 @@ namespace ptders2
 
     
 
-        public void setSerialPort(SerialPort port)
+        public void setSerialPort(SerialPort port, SerialPort port2)
         {
-            sameport = port;
+            displayPort = port;
+            glovePort = port2;
         }
 
         #endregion
@@ -233,16 +237,11 @@ namespace ptders2
 
         }
 
-        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
-        {
-            int x = e.X / _size;
-            int y = e.Y / _size;
-            SetPixel(x, y);
-        }
 
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
             mouse = true;
+          
 
         }
 
@@ -264,6 +263,23 @@ namespace ptders2
         {
             mouseovercoordinates.Clear();
             mouse = false;
+            clickchecked = false;
+            
+        }
+
+        
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            if (!clickchecked)
+            {
+                int x = e.X / _size;
+                int y = e.Y / _size;
+                SetPixel(x, y);
+                timer1.Stop();
+                clickchecked = false;
+            }
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -282,7 +298,7 @@ namespace ptders2
                     }
                 }
                 buffer += "&";
-                sameport.Write(buffer);
+                displayPort.Write(buffer);
 
             }
 
@@ -303,12 +319,17 @@ namespace ptders2
                     }
                 }
 
-                sameport.Write(":00000000000000000000000000000000000000000000000000000000000000000&");
+                displayPort.Write(":00000000000000000000000000000000000000000000000000000000000000000&");
             }
             catch
             {
 
             }
-        }   
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            clickchecked = true;
+        }
     }
 }

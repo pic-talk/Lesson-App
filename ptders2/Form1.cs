@@ -306,7 +306,7 @@ namespace ptders2
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             drawing drawPage = new drawing();
-            drawPage.setSerialPort(serialPort1);
+            drawPage.setSerialPort(serialPort1,serialPort2);
             drawPage.Show();
         }
 
