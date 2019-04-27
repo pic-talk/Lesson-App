@@ -22,7 +22,18 @@ namespace ptders2
         private bool check = false;
 
 
+        private Bitmap _image;
+        private int _count = 8;
+        private int _size = 50;
+        private bool[,] _pixels;
+
+        private List<Tuple<int, int>> mouseovercoordinates = new List<Tuple<int, int>>();
+
+
         SerialPort sameport;
+        private bool mouse;
+        private List<string> serial_buffer;
+        private string buffer;
 
         public drawing()
         {
@@ -38,7 +49,12 @@ namespace ptders2
             trackBar1.Value = 2;
             SetPic();
 
-       
+            _image = new Bitmap(pictureBox2.Size.Width, pictureBox2.Size.Height);
+            pictureBox2.Image = _image;
+            _pixels = new bool[_count, _count];
+            ShowGrid();
+
+
         }
 
         #region BUTON_EVENTLERİ
@@ -155,17 +171,144 @@ namespace ptders2
 
         #endregion
 
+        private void SetPixel(int x, int y, bool? on = null)
+        {
+            try
+            {
+                Graphics g = Graphics.FromImage(_image);
+                Color color;
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+                if (on.HasValue)
+                {
+                    _pixels[x, y] = on.Value;
+                }
+                else
+                {
+                    _pixels[x, y] = !_pixels[x, y];
+                }
+
+                if (_pixels[x, y])
+                {
+                    color = Color.Red;
+                }
+                else
+                {
+                    color = Color.White;
+                }
+
+                // SendToArduino((byte)x, (byte)y, _pixels[x, y]);
+                Brush brush = new SolidBrush(color);
+                g.FillRectangle(brush, x * _size + 1, y * _size + 1, _size - 1, _size - 1);
+
+                if (pictureBox2.InvokeRequired)
+                {
+                    pictureBox2.Invoke((Action)(() => pictureBox2.Refresh()));
+                }
+                else
+                {
+                    pictureBox2.Refresh();
+                }
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+
+        private void ShowGrid()
+        {
+            Graphics g = Graphics.FromImage(_image);
+            Pen pen = new Pen(Color.Black);
+            for (int i = 0; i <= _count; i++)
+            {
+                g.DrawLine(pen, i * _size, 0, i * _size, _image.Height);
+                g.DrawLine(pen, 0, i * _size, _image.Width, i * _size);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void drawing_Load(object sender, EventArgs e)
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
+            int x = e.X / _size;
+            int y = e.Y / _size;
+            SetPixel(x, y);
+        }
+
+        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouse = true;
 
         }
 
-        
+        private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouse)
+            {
+                var asf = new Tuple<int, int>(e.X / _size, e.Y / _size);
+                if (!mouseovercoordinates.Contains(asf))
+                {
+                    mouseovercoordinates.Add(new Tuple<int, int>(e.X / _size, e.Y / _size));
+                    SetPixel(e.X/_size, e.Y/_size);
+                   
+                }
+            }
+        }
+
+        private void pictureBox2_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseovercoordinates.Clear();
+            mouse = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                serial_buffer = new List<string>();
+                buffer = ":0";
+
+
+                for (int i = 7; i >= 0; i--)
+                {
+                    for (int k = 0; k < 8; k++)
+                    {
+                        buffer += (Convert.ToInt16(_pixels[i, k]) * 8).ToString();
+                    }
+                }
+                buffer += "&";
+                sameport.Write(buffer);
+
+            }
+
+            catch { }
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 7; i >= 0; i--)
+                {
+                    for (int k = 0; k < 8; k++)
+                    {
+                        SetPixel(i, k,false);
+                    }
+                }
+
+                sameport.Write(":00000000000000000000000000000000000000000000000000000000000000000&");
+            }
+            catch
+            {
+
+            }
+        }   
     }
 }
