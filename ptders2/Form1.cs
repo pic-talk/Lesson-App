@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
+using System.IO;
 
 namespace ptders2
 {
@@ -126,6 +127,24 @@ namespace ptders2
             {
                 comboBox_seriport.Items.Add(item);
                 comboBox2.Items.Add(item);
+            }
+
+            var lines = File.ReadAllLines(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\files\coms.txt");
+
+
+            try
+            {
+                serialPort1.PortName = lines[0];
+                serialPort2.PortName = lines[1];
+              
+
+                serialPort1.Open();
+                serialPort2.Open();
+            }
+
+            catch
+            {
+                MessageBox.Show("Auto Connection Fault","Fault",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
         }
