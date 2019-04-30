@@ -290,11 +290,11 @@ namespace ptders2
                 buffer = ":0";
 
 
-                for (int i = 7; i >= 0; i--)
+                for (int i = 0; i < 8; i++)
                 {
-                    for (int k = 0; k < 8; k++)
+                    for (int k = 7; k >= 0; k--)
                     {
-                        buffer += (Convert.ToInt16(_pixels[i, k]) * 8).ToString();
+                        buffer += (Convert.ToInt16(_pixels[k,i]) * 8).ToString();
                     }
                 }
                 buffer += "&";

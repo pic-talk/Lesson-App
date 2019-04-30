@@ -1,0 +1,16 @@
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\bin\Release\ptders2.exe.config
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\bin\Release\ptders2.exe
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\bin\Release\ptders2.pdb
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.csprojAssemblyReference.cache
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.circuit.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.colors.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.drawing.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.Form1.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.fraction.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.integral.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.Properties.Resources.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.shapes.resources
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.csproj.GenerateResource.cache
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.csproj.CoreCompileInputs.cache
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.exe
+C:\Users\Musa Ünal\source\repos\ptders2\ptders2\obj\Release\ptders2.pdb
