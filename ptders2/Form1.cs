@@ -136,7 +136,6 @@ namespace ptders2
             {
                 serialPort1.PortName = lines[0];
                 serialPort2.PortName = lines[1];
-              
 
                 serialPort1.Open();
                 serialPort2.Open();
